@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: gunicorn-deployment
+ namespace: prod
+spec:
+ selector:
+   matchLabels:
+    type: gunicorn
+ replicas: 2
+ template:
+   metadata:
+     labels:
+       type: gunicorn
+   spec:
+    containers:
+    - name: container
+      image: kaenga/gunicorn:latest
+      ports:
+      - containerPort: 8000
+      resources:
+        requests:
+          cpu: 100m
+        limits:
+          cpu: 200m
+
