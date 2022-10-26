@@ -1,5 +1,5 @@
 FROM python:3
-RUN pip --upgrade && pip install flask && pip install gunicorn
+RUN pip install --upgrade && pip install flask && pip install gunicorn
 ADD ./main.py /
 ADD ./wsgi.py /
 EXPOSE 8000
