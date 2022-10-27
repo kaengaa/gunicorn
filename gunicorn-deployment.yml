@@ -16,6 +16,11 @@ spec:
     containers:
     - name: container
       image: kaenga/gunicorn:latest
+      envFrom:
+        - secretRef:
+            name: mysql-sec
+        - configMapRef:
+            name: mysql-cm
       ports:
       - containerPort: 8000
       resources:
