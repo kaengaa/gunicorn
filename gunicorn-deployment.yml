@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
  name: gunicorn-deployment
  namespace: prod
+ labels:
+   type: web
+   app: gunicorn
 spec:
  selector:
    matchLabels:
