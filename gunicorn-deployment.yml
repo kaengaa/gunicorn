@@ -15,7 +15,7 @@ spec:
    spec:
     containers:
     - name: container
-      image: kaenga/gunicorn:latest
+      image: cloudcamp2022/backend:latest
       envFrom:
         - secretRef:
             name: mysql-sec
