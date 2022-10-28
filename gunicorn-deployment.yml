@@ -6,16 +6,18 @@ metadata:
 spec:
  selector:
    matchLabels:
-    type: gunicorn
+     type: web
+     app: gunicorn
  replicas: 2
  template:
    metadata:
      labels:
-       type: gunicorn
+       type: web
+       app: gunicorn
    spec:
     containers:
     - name: container
-      image: cloudcamp2022/backend:latest
+      image: kaenga/gunicorn:latest
       envFrom:
         - secretRef:
             name: mysql-sec
